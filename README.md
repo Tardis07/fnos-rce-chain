@@ -34,7 +34,7 @@
                 +---> [ PostgreSQL 数据库 ] ---> 表: longtoken
 ```
 
-如果需要执行授权命令执行，则需要拿到 secret 或者 token。但任意文件读取读取堆内存略微困难，因此要么读取到 longtoken 转化为 token，要么想办法利用业务漏洞。
+授权命令执行需要拿到 secret 或者 token。但读取堆内存略微困难，因此要么读取到 longtoken 转化为 token，要么想办法利用业务漏洞。
 
 #### 1.2 交互逻辑
 
@@ -58,7 +58,7 @@
 
 ![](./3.png)
 
-**因此 secret 和 token 可以相互转化，**这点很重要。
+**因此 secret 和 token 可以相互转化**，这点很重要。
 
 在 /usr/trim/bin/trim 中的 handle_websocket_packet 函数中包含了鉴权逻辑。
 
